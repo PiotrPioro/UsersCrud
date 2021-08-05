@@ -11,7 +11,7 @@ import java.io.IOException;
 @WebServlet("/user/delete")
 public class UserDelete extends HttpServlet {
 
-    private static UserDao userDao = new UserDao();
+    private static final UserDao userDao = new UserDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

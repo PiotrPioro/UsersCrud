@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet("/user/read")
 public class UserRead extends HttpServlet {
 
-    private static UserDao userDao = new UserDao();
+    private static final UserDao userDao = new UserDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

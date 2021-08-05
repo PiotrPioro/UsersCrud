@@ -1,6 +1,7 @@
 package pl.coderslab.users;
 
 
+import pl.coderslab.databaseClasses.User;
 import pl.coderslab.databaseClasses.UserDao;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,7 @@ import java.io.IOException;
 @WebServlet("/user/edit")
 public class UserEdit extends HttpServlet {
 
-    private static UserDao userDao = new UserDao();
+    private static final UserDao userDao = new UserDao();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
