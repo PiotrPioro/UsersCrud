@@ -25,8 +25,17 @@ public class UserCreate extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = new User(request.getParameter("name"), request.getParameter("email"), request.getParameter("password"));
-        userDao.create(user);
+        String email = request.getParameter("email");
+
+        if (verifyEmail(email)) {
+            User user = new User(request.getParameter("name"), email, request.getParameter("password"));
+            userDao.create(user);
+        }
+
         response.sendRedirect("/users/list");
+    }
+
+    public static boolean verifyEmail(String email){
+        return email.matches("[_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.([a-zA-Z]{2,}){1}");
     }
 }
